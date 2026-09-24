@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="intro-running">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>mutate.lol</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c5cff'/%3E%3C/svg%3E" />
+    <!--
+      Critical intro styles are inlined so the opening layer is fully styled on
+      the very first paint (the entry module is render-blocking, see vite.config.ts).
+    -->
+    <style>
+      html { background: #07070b; }
+      html.intro-running, html.intro-running body { overflow: hidden; }
+      .intro {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        overflow: hidden;
+        /* Fallback tones matching the shot, only visible if WebGL never starts. */
+        background: linear-gradient(180deg, #b9c9dc 0%, #dfe6ee 45%, #a9b6c6 100%);
+        contain: strict;
+        pointer-events: none;
+        /* Failsafe: if the intro script never takes over, get out of the way. */
+        animation: intro-failsafe 0.6s ease 6s forwards;
+      }
+      .intro.is-live { animation: none; }
+      .intro__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+      .intro__wordmark { opacity: 0; }
+      @keyframes intro-failsafe { to { opacity: 0; visibility: hidden; } }
+    </style>
+    <noscript><style>.intro { display: none; } html.intro-running, html.intro-running body { overflow: auto; }</style></noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <div id="intro" class="intro" aria-hidden="true">
+      <canvas class="intro__canvas"></canvas>
+      <div class="intro__wordmark"><span class="intro__wordmark-main">mutate</span><span class="intro__wordmark-tld">.lol</span></div>
+    </div>
+
+    <div id="app" class="site">
+      <header class="site-nav">
+        <a class="site-logo" href="/" aria-label="mutate.lol home"><span>mutate</span><span class="site-logo__tld">.lol</span></a>
+        <nav class="site-nav__links" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <p class="hero__eyebrow">Landing page placeholder</p>
+        <h1 class="hero__title">Everything <span class="hero__accent">mutates</span>.</h1>
+        <p class="hero__lede">This page stands in for the real mutate.lol landing page. The cinematic opening plays on top of it and lifts away to reveal it.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#work">Explore</a>
+          <a class="btn btn--ghost" href="#about">Learn more</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+/* Placeholder landing page (stands in for the real mutate.lol page). */
+
+:root {
+  --bg: #07070b;
+  --fg: #f4f3f8;
+  --muted: #9a98a8;
+  --accent: #7c5cff;
+  --line: rgba(255, 255, 255, 0.08);
+  --font: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.site {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  transform-origin: 50% 40%;
+  background:
+    radial-gradient(60rem 40rem at 70% -10%, rgba(124, 92, 255, 0.22), transparent 60%),
+    radial-gradient(40rem 30rem at 0% 110%, rgba(124, 92, 255, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.site-nav,
+.hero {
+  /* Driven by the intro while it lifts away; 1 (fully shown) otherwise. */
+  opacity: var(--intro-content, 1);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.site-logo__tld {
+  color: var(--accent);
+}
+
+.site-nav__links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.25rem);
+}
+
+.site-nav__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.site-nav__links a:hover {
+  color: var(--fg);
+}
+
+.hero {
+  transform: translateY(calc((1 - var(--intro-content, 1)) * 16px));
+  display: grid;
+  gap: 1.5rem;
+  max-width: 58rem;
+  padding: clamp(4rem, 14vh, 9rem) clamp(1.25rem, 4vw, 3rem) 6rem;
+}
+
+.hero__eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 5.75rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.hero__accent {
+  color: var(--accent);
+}
+
+.hero__lede {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  color: var(--fg);
+}
+
+.btn:focus-visible,
+.site-nav__links a:focus-visible,
+.site-logo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

@@ -1,0 +1,31 @@
+/* Opening layer. Critical rules (position, fallback, failsafe) are inlined in index.html. */
+
+.intro {
+  transform-origin: 50% 50%;
+  will-change: opacity, transform, filter;
+}
+
+.intro__wordmark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.25rem, 8.4vw, 10rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #fff;
+  white-space: nowrap;
+  /* A soft, wide shadow separates the type from bright cloud without reading as a UI effect. */
+  text-shadow: 0 0.03em 0.6em rgba(8, 14, 26, 0.32);
+  opacity: 0;
+  will-change: opacity, transform, filter;
+  user-select: none;
+}
+
+.intro__wordmark-tld {
+  color: #7c5cff;
+}
