@@ -1,6 +1,6 @@
-# mutate.lol
+# b2spirit
 
-A placeholder landing page with a cinematic, fully procedural 3D opening: a B-2 Spirit
+A cinematic, fully procedural 3D opening for a landing page: a B-2 Spirit
 passes over a sea of clouds, leaves contrails hanging in the air, and hands off to the
 `mutate.lol` wordmark before the layer lifts away to reveal the page.
 
